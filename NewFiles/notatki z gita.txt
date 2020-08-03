@@ -11,3 +11,5 @@
 
 	git restore --staged <nazwa pliku> :: cofa ze staging area to working directory
 	git commit -am "message" :: commituje zmiany z pominięciem staging area.
+
+	git checkout -- <nazwa pliku> :: zastępuje plik w working directory tym z repo
