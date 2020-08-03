@@ -1,3 +1,12 @@
 
 	git diff :: pokazuje różnice pomiędzy working directory a repo
 	git diff --staged :: pokazuje różnice pomiędzy staging area a repo.
+
+	git rm <nazwa pliku> :: usuwa plik z repo i working directory, następnie musimy to jeszcze zakomitować.
+
+	zmiana nazwy pliku:
+	git rm <stara nazwa>
+	git add <nowa nazwa>
+	git commit
+
+	git restore --staged <nazwa pliku> :: cofa ze staging area to working directory
