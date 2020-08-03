@@ -15,3 +15,4 @@
 
 [BeaconChecker][Beacon test][Ping test to Citrix server][ping.citrix.com not reachable.]
 
+A w raporcie dodam taką linijkę podsumowującą.
