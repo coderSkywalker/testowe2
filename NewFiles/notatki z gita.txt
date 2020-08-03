@@ -13,3 +13,5 @@
 	git commit -am "message" :: commituje zmiany z pominięciem staging area.
 
 	git checkout -- <nazwa pliku> :: zastępuje plik w working directory tym z repo
+
+	git reset HEAD <nazwa pliku> :: przywraca plik ze staging area do working directory
