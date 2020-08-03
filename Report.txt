@@ -11,7 +11,7 @@
 
 [SSONChecker][Group Policy][Group Policy][Checking that 'Local user name and password' Group Policy is enabled or left not configured.]
 
-[Test Provider:BeaconChecker.dll]
+zamieniam na taką linijkę - a co tam.
 
 [BeaconChecker][Beacon test][Ping test to Citrix server][ping.citrix.com not reachable.]
 
