@@ -3,6 +3,7 @@
 	git diff --staged :: pokazuje różnice pomiędzy staging area a repo.
 
 	git rm <nazwa pliku> :: usuwa plik z repo i working directory, następnie musimy to jeszcze zakomitować.
+	git rm --cached <nazwa pliku> :: przesuwa plik ze staging area do working directory.
 
 	zmiana nazwy pliku:
 	git rm <stara nazwa>
@@ -22,3 +23,7 @@
 	git remote add <moja nazwa repo zdalnego> <adres repo z gita>
 	np:
 	git remote add githubTestowe2 https://github.com/coderSkywalker/testowe2.git
+	git remote :: wyświetla nazwę repo na serwerze
+	git push -u githubTestowe2 master :: wypycha lokalne repozytorium gita na zdalne repozytorium o nazwie
+				githubTestowe2 na serwer. 
+	
