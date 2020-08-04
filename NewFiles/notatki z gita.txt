@@ -17,3 +17,8 @@
 						area 
 
 	git reset HEAD <nazwa pliku> :: przywraca plik ze staging area do working directory
+
+	ustanawianie repo na serwerze:
+	git remote add <moja nazwa repo zdalnego> <adres repo z gita>
+	np:
+	git remote add githubTestowe2 https://github.com/coderSkywalker/testowe2.git
