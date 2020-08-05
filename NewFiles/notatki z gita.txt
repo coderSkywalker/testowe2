@@ -8,16 +8,18 @@
 	zmiana nazwy pliku:
 	git rm <stara nazwa>
 	git add <nowa nazwa>
-	git commit
+	
 
 	git restore --staged <nazwa pliku> :: cofa ze staging area to working directory
 	git commit -am "message" :: commituje zmiany z pominięciem staging area.
+	git commit --amend :: dodaje do ostatniego commit'a zmiany ze staging area.
 
 	git checkout -- <nazwa pliku> :: zastępuje plik w working directory tym z repo
 	git checkout <nr commita> -- <file name> :: zaciąga wersję pliku z danego commita i przenosi do staging
 						area 
 
 	git reset HEAD <nazwa pliku> :: przywraca plik ze staging area do working directory
+	git reset --hard <nr commita> :: wczytuje
 
 	ustanawianie repo na serwerze:
 	git remote add <moja nazwa repo zdalnego> <adres repo z gita>
