@@ -1,4 +1,6 @@
 
+	##############################	NOTATKI Z GITA	##############################
+
 	git diff :: pokazuje różnice pomiędzy working directory a repo
 	git diff --staged :: pokazuje różnice pomiędzy staging area a repo.
 
