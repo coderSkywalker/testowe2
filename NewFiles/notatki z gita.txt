@@ -1,4 +1,4 @@
-
+da
 	##############################	NOTATKI Z GITA	##############################
 
 	git diff :: pokazuje różnice pomiędzy working directory a repo
