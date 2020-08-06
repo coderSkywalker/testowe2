@@ -1,6 +1,21 @@
 da
 	##############################	NOTATKI Z GITA	##############################
 
+	git clean :: służy do usunięcia nieśledzonych plików w working area, ponieważ nie można 
+		odwrócić działania tego polecenia to jego uruchomienie zawsze wywołuje wyświetlenie
+		się komunikatu błędu - wszystko jest dobrze, tak to działa;
+			flaga -n jest dodawana dla uruchomienia wersji testowej polecenia clean 
+		aby zorientować się co będzie wyrzucone jeśli uruchomimy docelową wersję clean
+			flaga -d jest dodawana jeśli usunięte mają byś również foldery np:
+		git clean -dn pokaże pliki i foldery w trybie próbnym - co byłoby usunięte gdyby...
+			flaga -i służy do uruchomienia polecenia w trybie interaktywnym, w którym git
+		zapyta mnie co konkretnie chcę zrobić i z czym;
+			flaga -f służy do uruchomienia polecenia z docelowym działaniem czyszczenia
+		working directory
+		przykładowo:
+		git clean -idf :: wyświetli pliki i katalogi w trybie interaktywnym i konsekwencją będzie
+			trwałe usunięcie wskazanych plików.
+
 	git diff :: pokazuje różnice pomiędzy working directory a repo
 	git diff --staged :: pokazuje różnice pomiędzy staging area a repo.
 
