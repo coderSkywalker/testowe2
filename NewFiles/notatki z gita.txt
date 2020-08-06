@@ -1,5 +1,12 @@
-da
+
 	##############################	NOTATKI Z GITA	##############################
+
+
+	git checkout <nazwa branch'a> :: przełącza się pomiędzy branch'ami
+	git checkout -b <nazwa branch'a> :: tworzy brancza i się na niego przełącza - teraz HEAD tu wskazuje
+	git checkout -- <nazwa pliku> :: zastępuje plik w working directory tym z repo
+	git checkout <nr commita> -- <file name> :: zaciąga wersję pliku z danego commita i przenosi do staging
+						area 
 
 	git clean :: służy do usunięcia nieśledzonych plików w working area, ponieważ nie można 
 		odwrócić działania tego polecenia to jego uruchomienie zawsze wywołuje wyświetlenie
@@ -16,8 +23,15 @@ da
 		git clean -idf :: wyświetli pliki i katalogi w trybie interaktywnym i konsekwencją będzie
 			trwałe usunięcie wskazanych plików.
 
+	
+
+	git commit -am "message" :: commituje zmiany z pominięciem staging area.
+	git commit --amend :: dodaje do ostatniego commit'a zmiany ze staging area.	
+
 	git diff :: pokazuje różnice pomiędzy working directory a repo
 	git diff --staged :: pokazuje różnice pomiędzy staging area a repo.
+
+	git log --oneline :: wyświetla commit'y w wersji skondensowanej - jednoliniowej
 
 	git rm <nazwa pliku> :: usuwa plik z repo i working directory, następnie musimy to jeszcze zakomitować.
 	git rm --cached <nazwa pliku> :: przesuwa plik ze staging area do working directory.
@@ -28,14 +42,11 @@ da
 	
 
 	git restore --staged <nazwa pliku> :: cofa ze staging area to working directory
-	git commit -am "message" :: commituje zmiany z pominięciem staging area.
-	git commit --amend :: dodaje do ostatniego commit'a zmiany ze staging area.
+	
 
-	git checkout <nazwa branch'a> :: przełącza się pomiędzy branch'ami
-	git checkout -b <nazwa branch'a> :: tworzy brancza i się na niego przełącza - teraz HEAD tu wskazuje
-	git checkout -- <nazwa pliku> :: zastępuje plik w working directory tym z repo
-	git checkout <nr commita> -- <file name> :: zaciąga wersję pliku z danego commita i przenosi do staging
-						area 
+	
+
+	
 
 	git reset HEAD <nazwa pliku> :: przywraca plik ze staging area do working directory
 	git reset --hard <nr commita> :: wczytuje
