@@ -16,3 +16,4 @@ zamieniam na taką linijkę - a co tam.
 [BeaconChecker][Beacon test][Ping test to Citrix server][ping.citrix.com not reachable.]
 
 A w raporcie dodam taką linijkę podsumowującą.
+wprowadzę nieco dodatkowych zmian coby wypełnić plik tekstem a przy okazji poćwiczyć nieco pisanie.

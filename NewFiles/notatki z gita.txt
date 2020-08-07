@@ -1,18 +1,85 @@
 
+	##############################	NOTATKI Z GITA	##############################
+
+
+	git checkout <nazwa branch'a> :: przełącza się pomiędzy branch'ami
+	git checkout -b <nazwa branch'a> :: tworzy brancza i się na niego przełącza - teraz HEAD tu wskazuje
+	git checkout -- <nazwa pliku> :: zastępuje plik w working directory tym z repo
+	git checkout <nr commita> -- <file name> :: zaciąga wersję pliku z danego commita i przenosi do staging
+						area 
+
+	git clean :: służy do usunięcia nieśledzonych plików w working area, ponieważ nie można 
+		odwrócić działania tego polecenia to jego uruchomienie zawsze wywołuje wyświetlenie
+		się komunikatu błędu - wszystko jest dobrze, tak to działa;
+			flaga -n jest dodawana dla uruchomienia wersji testowej polecenia clean 
+		aby zorientować się co będzie wyrzucone jeśli uruchomimy docelową wersję clean
+			flaga -d jest dodawana jeśli usunięte mają byś również foldery np:
+		git clean -dn pokaże pliki i foldery w trybie próbnym - co byłoby usunięte gdyby...
+			flaga -i służy do uruchomienia polecenia w trybie interaktywnym, w którym git
+		zapyta mnie co konkretnie chcę zrobić i z czym;
+			flaga -f służy do uruchomienia polecenia z docelowym działaniem czyszczenia
+		working directory
+		przykładowo:
+		git clean -idf :: wyświetli pliki i katalogi w trybie interaktywnym i konsekwencją będzie
+			trwałe usunięcie wskazanych plików.
+
+	
+
+	git commit -am "message" :: commituje zmiany z pominięciem staging area.
+	git commit --amend :: dodaje do ostatniego commit'a zmiany ze staging area.	
+
 	git diff :: pokazuje różnice pomiędzy working directory a repo
 	git diff --staged :: pokazuje różnice pomiędzy staging area a repo.
 
+	git log --oneline :: wyświetla commit'y w wersji skondensowanej - jednoliniowej
+
 	git rm <nazwa pliku> :: usuwa plik z repo i working directory, następnie musimy to jeszcze zakomitować.
+	git rm --cached <nazwa pliku> :: przesuwa plik ze staging area do working directory.
 
 	zmiana nazwy pliku:
 	git rm <stara nazwa>
 	git add <nowa nazwa>
-	git commit
+	
 
 	git restore --staged <nazwa pliku> :: cofa ze staging area to working directory
-	git commit -am "message" :: commituje zmiany z pominięciem staging area.
+	
 
-	git checkout -- <nazwa pliku> :: zastępuje plik w working directory tym z repo
+	
+
+	
 
 	git reset HEAD <nazwa pliku> :: przywraca plik ze staging area do working directory
-no i teraz robimy mess up z tymi notatkami 
+	git reset --hard <nr commita> :: wczytuje
+
+	ustanawianie repo na serwerze:
+	git remote add <moja nazwa repo zdalnego> <adres repo z gita>
+	np:
+	git remote add githubTestowe2 https://github.com/coderSkywalker/testowe2.git
+	git remote :: wyświetla nazwę repo na serwerze
+	git push -u githubTestowe2 master :: wypycha lokalne repozytorium gita na zdalne repozytorium o nazwie
+				githubTestowe2 na serwer. 
+	
+
+
+
+		USUWANIE PLIKU Z REPO:
+	git rm <nazwa pliku> :: przenosi z repo do staged z adnotacją "deleted"
+	git commit - m "" :: potwierdza usuniecie pliku
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
