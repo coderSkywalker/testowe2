@@ -59,3 +59,27 @@
 	git push -u githubTestowe2 master :: wypycha lokalne repozytorium gita na zdalne repozytorium o nazwie
 				githubTestowe2 na serwer. 
 	
+
+
+
+		USUWANIE PLIKU Z REPO:
+	git rm <nazwa pliku> :: przenosi z repo do staged z adnotacją "deleted"
+	git commit - m "" :: potwierdza usuniecie pliku
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
