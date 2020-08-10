@@ -32,6 +32,19 @@
 	git diff --staged :: pokazuje różnice pomiędzy staging area a repo.
 
 	git log --oneline :: wyświetla commit'y w wersji skondensowanej - jednoliniowej
+	git log --author="" :: przeglądanie historii commitów tylko danego autora 
+	git log --authot="" --oneline :: flagi można ze sobą łączyć łącząc efekty
+	git log --grep="" :: wyszukiwanie commitów po frazie z message'a
+	git log --oneline -5 :: wyświetla 5 najnowszych commitów w formie lapidarnej
+	git log --oneline -- <nazwa pliku lub katalogu> :: przegląda commity dotyczące konkretnego pliku lub 
+				katalogu
+	git log -- <nazwa pliku> :: wyświetla commity dotyczące danego pliku
+	git log --patch <nazwa pliku> :: wyświetla co konkretnie zostało zmienione w danych commitach
+	git log --stat :: wyświetla commity a także statystyki odnośnie dodanych i usuniętych linii
+	git log --summary :: wyświetla commity z tytułami i opisami
+	git log --format"%h %an %s (%cr)" :: wyświetla commity w dowolnie zdefiniowanym formacie, tutaj:
+				skrócone hash'e autor komentarz kiedy
+	git shortlog :: wyświetla commity w podziale na autorów
 
 	git rm <nazwa pliku> :: usuwa plik z repo i working directory, następnie musimy to jeszcze zakomitować.
 	git rm --cached <nazwa pliku> :: przesuwa plik ze staging area do working directory.
