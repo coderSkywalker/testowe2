@@ -26,7 +26,9 @@
 	
 
 	git commit -am "message" :: commituje zmiany z pominięciem staging area.
-	git commit --amend :: dodaje do ostatniego commit'a zmiany ze staging area.	
+	git commit --amend :: dodaje do ostatniego commit'a zmiany ze staging area.
+	
+	git config --global core.editor <nazwa edytora> :: ustawia domyśny edytor do pisania komentarzy	
 
 	git diff :: pokazuje różnice pomiędzy working directory a repo
 	git diff --staged :: pokazuje różnice pomiędzy staging area a repo.
@@ -83,8 +85,16 @@
 
 
 
-
-
+		DOBRE PRAKTYKI ODNOSNIE PISANIA KOMENTARZY
+	
+	* podziel komentarz na tytuł oraz treść, oddzielając je pustym wierszem
+	* ogranicz długość tytułu komentarza do 50 znaków
+	* tytuł rozpocznij wielką literą
+	* nie dodawaj kropki na końcu tytułu
+	* używaj trybu rozkazującego w tytule komentarza - w treści nie
+	* ogranich długość wiersza treści komentarza do 72 znaków - może mieć wiele wierszy
+	* pisząc treść komentarza odpowiadaj na pytania co i dlaczego, jak można się dowiedzieć
+	  przeglądając zmiany 
 
 
 
