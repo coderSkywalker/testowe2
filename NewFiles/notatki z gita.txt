@@ -1,8 +1,52 @@
 
-	##############################	NOTATKI Z GITA	##############################
+	######################################	NOTATKI Z GITA	######################################
+
+
+	git checkout <nazwa branch'a> :: przełącza się pomiędzy branch'ami
+	git checkout -b <nazwa branch'a> :: tworzy brancza i się na niego przełącza - teraz HEAD tu wskazuje
+	git checkout -- <nazwa pliku> :: zastępuje plik w working directory tym z repo
+	git checkout <nr commita> -- <file name> :: zaciąga wersję pliku z danego commita i przenosi do staging
+						area 
+
+	git clean :: służy do usunięcia nieśledzonych plików w working area, ponieważ nie można 
+		odwrócić działania tego polecenia to jego uruchomienie zawsze wywołuje wyświetlenie
+		się komunikatu błędu - wszystko jest dobrze, tak to działa;
+			flaga -n jest dodawana dla uruchomienia wersji testowej polecenia clean 
+		aby zorientować się co będzie wyrzucone jeśli uruchomimy docelową wersję clean
+			flaga -d jest dodawana jeśli usunięte mają byś również foldery np:
+		git clean -dn pokaże pliki i foldery w trybie próbnym - co byłoby usunięte gdyby...
+			flaga -i służy do uruchomienia polecenia w trybie interaktywnym, w którym git
+		zapyta mnie co konkretnie chcę zrobić i z czym;
+			flaga -f służy do uruchomienia polecenia z docelowym działaniem czyszczenia
+		working directory
+		przykładowo:
+		git clean -idf :: wyświetli pliki i katalogi w trybie interaktywnym i konsekwencją będzie
+			trwałe usunięcie wskazanych plików.
+
+	
+
+	git commit -am "message" :: commituje zmiany z pominięciem staging area.
+	git commit --amend :: dodaje do ostatniego commit'a zmiany ze staging area.
+	
+	git config --global core.editor <nazwa edytora> :: ustawia domyśny edytor do pisania komentarzy	
 
 	git diff :: pokazuje różnice pomiędzy working directory a repo
 	git diff --staged :: pokazuje różnice pomiędzy staging area a repo.
+
+	git log --oneline :: wyświetla commit'y w wersji skondensowanej - jednoliniowej
+	git log --author="" :: przeglądanie historii commitów tylko danego autora 
+	git log --authot="" --oneline :: flagi można ze sobą łączyć łącząc efekty
+	git log --grep="" :: wyszukiwanie commitów po frazie z message'a
+	git log --oneline -5 :: wyświetla 5 najnowszych commitów w formie lapidarnej
+	git log --oneline -- <nazwa pliku lub katalogu> :: przegląda commity dotyczące konkretnego pliku lub 
+				katalogu
+	git log -- <nazwa pliku> :: wyświetla commity dotyczące danego pliku
+	git log --patch <nazwa pliku> :: wyświetla co konkretnie zostało zmienione w danych commitach
+	git log --stat :: wyświetla commity a także statystyki odnośnie dodanych i usuniętych linii
+	git log --summary :: wyświetla commity z tytułami i opisami
+	git log --format"%h %an %s (%cr)" :: wyświetla commity w dowolnie zdefiniowanym formacie, tutaj:
+				skrócone hash'e autor komentarz kiedy
+	git shortlog :: wyświetla commity w podziale na autorów
 
 	git rm <nazwa pliku> :: usuwa plik z repo i working directory, następnie musimy to jeszcze zakomitować.
 	git rm --cached <nazwa pliku> :: przesuwa plik ze staging area do working directory.
@@ -13,17 +57,28 @@
 	
 
 	git restore --staged <nazwa pliku> :: cofa ze staging area to working directory
-	git commit -am "message" :: commituje zmiany z pominięciem staging area.
-	git commit --amend :: dodaje do ostatniego commit'a zmiany ze staging area.
+	
 
-	git checkout <nazwa branch'a> :: przełącza się pomiędzy branch'ami
-	git checkout -b <nazwa branch'a> :: tworzy brancza i się na niego przełącza - teraz HEAD tu wskazuje
-	git checkout -- <nazwa pliku> :: zastępuje plik w working directory tym z repo
-	git checkout <nr commita> -- <file name> :: zaciąga wersję pliku z danego commita i przenosi do staging
-						area 
+	
+
+	
 
 	git reset HEAD <nazwa pliku> :: przywraca plik ze staging area do working directory
 	git reset --hard <nr commita> :: wczytuje
+
+	**********   STASH - STOS GITA   **********
+	domyślinie do stosu gita można dodawać jedynie śledzone przez gita elementy
+	git stash :: przenosi zawartość working directory na stos
+	git stash push -m "komentarz" :: tworzy wpis stosu wraz komentarzem
+	git stash push -u :: tworzy wpis stosu dla nieśledzonych jeszcze przez gita elementów
+	git stash list :: wyświetla listę wpisów stosu gita
+	git stash apply :: przywraca zmiany z listy stosu do katalogu roboczego bez usuwania wpisu - jeśli
+			 nie wskażemy na konkretny identyfikator zmian przywraca ostatni
+	git stash pop :: jak wyżej jednak w tym wypadku wpis stosu zostanie wyczyszczony
+	git stash drop :: usuwa ostatni wpis ze stosu bez przywracania zmian do katalogu roboczego
+	git stash drop <identyfikator zmian stosu> :: jak wyżej przy czym usuwa wskazany wpis
+	git stash clear :: czyści wszystkie wpisy stosu bez przywracania zmian do katalogu roboczego
+	git stash branch <nazwa brancha> :: tworzy nowy branch na podstawie zawartości stosu
 
 	ustanawianie repo na serwerze:
 	git remote add <moja nazwa repo zdalnego> <adres repo z gita>
@@ -31,5 +86,40 @@
 	git remote add githubTestowe2 https://github.com/coderSkywalker/testowe2.git
 	git remote :: wyświetla nazwę repo na serwerze
 	git push -u githubTestowe2 master :: wypycha lokalne repozytorium gita na zdalne repozytorium o nazwie
-				githubTestowe2 na serwer. 
+				githubTestowe2 na serwer.
+
 	
+	
+	
+
+
+
+		USUWANIE PLIKU Z REPO:
+	git rm <nazwa pliku> :: przenosi z repo do staged z adnotacją "deleted"
+	git commit - m "" :: potwierdza usuniecie pliku
+
+
+
+
+
+		DOBRE PRAKTYKI ODNOSNIE PISANIA KOMENTARZY
+	
+	* podziel komentarz na tytuł oraz treść, oddzielając je pustym wierszem
+	* ogranicz długość tytułu komentarza do 50 znaków
+	* tytuł rozpocznij wielką literą
+	* nie dodawaj kropki na końcu tytułu
+	* używaj trybu rozkazującego w tytule komentarza - w treści nie
+	* ogranich długość wiersza treści komentarza do 72 znaków - może mieć wiele wierszy
+	* pisząc treść komentarza odpowiadaj na pytania co i dlaczego, jak można się dowiedzieć
+	  przeglądając zmiany 
+
+
+
+
+
+
+
+
+
+
+
