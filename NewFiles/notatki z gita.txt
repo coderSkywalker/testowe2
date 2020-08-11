@@ -1,5 +1,34 @@
 
-	##############################	NOTATKI Z GITA	##############################
+	######################################	NOTATKI Z GITA	######################################
+
+
+	git checkout <nazwa branch'a> :: przełącza się pomiędzy branch'ami
+	git checkout -b <nazwa branch'a> :: tworzy brancza i się na niego przełącza - teraz HEAD tu wskazuje
+	git checkout -- <nazwa pliku> :: zastępuje plik w working directory tym z repo
+	git checkout <nr commita> -- <file name> :: zaciąga wersję pliku z danego commita i przenosi do staging
+						area 
+
+	git clean :: służy do usunięcia nieśledzonych plików w working area, ponieważ nie można 
+		odwrócić działania tego polecenia to jego uruchomienie zawsze wywołuje wyświetlenie
+		się komunikatu błędu - wszystko jest dobrze, tak to działa;
+			flaga -n jest dodawana dla uruchomienia wersji testowej polecenia clean 
+		aby zorientować się co będzie wyrzucone jeśli uruchomimy docelową wersję clean
+			flaga -d jest dodawana jeśli usunięte mają byś również foldery np:
+		git clean -dn pokaże pliki i foldery w trybie próbnym - co byłoby usunięte gdyby...
+			flaga -i służy do uruchomienia polecenia w trybie interaktywnym, w którym git
+		zapyta mnie co konkretnie chcę zrobić i z czym;
+			flaga -f służy do uruchomienia polecenia z docelowym działaniem czyszczenia
+		working directory
+		przykładowo:
+		git clean -idf :: wyświetli pliki i katalogi w trybie interaktywnym i konsekwencją będzie
+			trwałe usunięcie wskazanych plików.
+
+	
+
+	git commit -am "message" :: commituje zmiany z pominięciem staging area.
+	git commit --amend :: dodaje do ostatniego commit'a zmiany ze staging area.
+	
+	git config --global core.editor <nazwa edytora> :: ustawia domyśny edytor do pisania komentarzy	
 
 
 	git checkout <nazwa branch'a> :: przełącza się pomiędzy branch'ami
@@ -66,16 +95,30 @@
 	git reset HEAD <nazwa pliku> :: przywraca plik ze staging area do working directory
 	git reset --hard <nr commita> :: wczytuje
 
+	**********   STASH - STOS GITA   **********
+	domyślinie do stosu gita można dodawać jedynie śledzone przez gita elementy
+	git stash :: przenosi zawartość working directory na stos
+	git stash push -m "komentarz" :: tworzy wpis stosu wraz komentarzem
+	git stash push -u :: tworzy wpis stosu dla nieśledzonych jeszcze przez gita elementów
+	git stash list :: wyświetla listę wpisów stosu gita
+	git stash apply :: przywraca zmiany z listy stosu do katalogu roboczego bez usuwania wpisu - jeśli
+			 nie wskażemy na konkretny identyfikator zmian przywraca ostatni
+	git stash pop :: jak wyżej jednak w tym wypadku wpis stosu zostanie wyczyszczony
+	git stash drop :: usuwa ostatni wpis ze stosu bez przywracania zmian do katalogu roboczego
+	git stash drop <identyfikator zmian stosu> :: jak wyżej przy czym usuwa wskazany wpis
+	git stash clear :: czyści wszystkie wpisy stosu bez przywracania zmian do katalogu roboczego
+	git stash branch <nazwa brancha> :: tworzy nowy branch na podstawie zawartości stosu
+
 	ustanawianie repo na serwerze:
 	git remote add <moja nazwa repo zdalnego> <adres repo z gita>
 	np:
 	git remote add githubTestowe2 https://github.com/coderSkywalker/testowe2.git
 	git remote :: wyświetla nazwę repo na serwerze
 	git push -u githubTestowe2 master :: wypycha lokalne repozytorium gita na zdalne repozytorium o nazwie
-				githubTestowe2 na serwer. 
+				githubTestowe2 na serwer.
+
 	
-
-
+	
 
 		USUWANIE PLIKU Z REPO:
 	git rm <nazwa pliku> :: przenosi z repo do staged z adnotacją "deleted"
