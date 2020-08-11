@@ -67,7 +67,7 @@
 
 	
 
-	git reset HEAD <nazwa pliku> :: przywraca plik ze staging area do working directory
+	git cośtam
 	git reset --hard <nr commita> :: wczytuje
 
 	**********   STASH - STOS GITA   **********
