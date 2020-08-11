@@ -1,35 +1,8 @@
 
 	######################################	NOTATKI Z GITA	######################################
 
-
-	git checkout <nazwa branch'a> :: przełącza się pomiędzy branch'ami
-	git checkout -b <nazwa branch'a> :: tworzy brancza i się na niego przełącza - teraz HEAD tu wskazuje
-	git checkout -- <nazwa pliku> :: zastępuje plik w working directory tym z repo
-	git checkout <nr commita> -- <file name> :: zaciąga wersję pliku z danego commita i przenosi do staging
-						area 
-
-	git clean :: służy do usunięcia nieśledzonych plików w working area, ponieważ nie można 
-		odwrócić działania tego polecenia to jego uruchomienie zawsze wywołuje wyświetlenie
-		się komunikatu błędu - wszystko jest dobrze, tak to działa;
-			flaga -n jest dodawana dla uruchomienia wersji testowej polecenia clean 
-		aby zorientować się co będzie wyrzucone jeśli uruchomimy docelową wersję clean
-			flaga -d jest dodawana jeśli usunięte mają byś również foldery np:
-		git clean -dn pokaże pliki i foldery w trybie próbnym - co byłoby usunięte gdyby...
-			flaga -i służy do uruchomienia polecenia w trybie interaktywnym, w którym git
-		zapyta mnie co konkretnie chcę zrobić i z czym;
-			flaga -f służy do uruchomienia polecenia z docelowym działaniem czyszczenia
-		working directory
-		przykładowo:
-		git clean -idf :: wyświetli pliki i katalogi w trybie interaktywnym i konsekwencją będzie
-			trwałe usunięcie wskazanych plików.
-
 	
-
-	git commit -am "message" :: commituje zmiany z pominięciem staging area.
-	git commit --amend :: dodaje do ostatniego commit'a zmiany ze staging area.
-	
-	git config --global core.editor <nazwa edytora> :: ustawia domyśny edytor do pisania komentarzy	
-
+	git branch -D <nazwa brancha> :: usuwa brancha
 
 	git checkout <nazwa branch'a> :: przełącza się pomiędzy branch'ami
 	git checkout -b <nazwa branch'a> :: tworzy brancza i się na niego przełącza - teraz HEAD tu wskazuje
@@ -76,6 +49,8 @@
 	git log --format"%h %an %s (%cr)" :: wyświetla commity w dowolnie zdefiniowanym formacie, tutaj:
 				skrócone hash'e autor komentarz kiedy
 	git shortlog :: wyświetla commity w podziale na autorów
+	git log --graph :: 
+	git log --decorate :: 
 
 	git rm <nazwa pliku> :: usuwa plik z repo i working directory, następnie musimy to jeszcze zakomitować.
 	git rm --cached <nazwa pliku> :: przesuwa plik ze staging area do working directory.
@@ -90,7 +65,7 @@
 
 	
 
-	
+	teraz nasieję tu nieco konkolu hehe
 
 	git reset HEAD <nazwa pliku> :: przywraca plik ze staging area do working directory
 	git reset --hard <nr commita> :: wczytuje
@@ -119,6 +94,9 @@
 
 	
 	
+	
+
+
 
 		USUWANIE PLIKU Z REPO:
 	git rm <nazwa pliku> :: przenosi z repo do staged z adnotacją "deleted"
@@ -140,7 +118,19 @@
 	  przeglądając zmiany 
 
 
-
+		ZASADY PRACY W REPOZYTORIUM
+	master branch - główna gałąź projektu wykorzystywana do publikacji najnowszej wersji projektu
+			na serwerze produkcyjnym. Master powinien zawsze zawierać stabilną wersję projektu.
+			Możliwość wprowadzania zmian powinna być ograniczona.
+	dev branch - gałąź na której znajduje się testowa wersja projektu ( alpha/beta ) zwykle połączona 
+			z serwerem testowym.
+	feature branch - na tej gałęzi prowadzone są prace nad nowymi funkcjami. Po ukończeniu prac zmiany 
+			trafią na branch dev.
+	user branch - gałęzie użytkowników służą indywidualnej pracy członka zespołu nad zmianami. Ukończone
+			zmiany trafiają na branch feature.
+	test / bugfix branch - w szczególnych przypadkach konieczne jest szybkie wprowadzenie zmian. W takiej
+			sytuacji wykorzystywane są branch'e typu bugfix. Przygotowane tutaj zmiany najczęsciej
+			trafiaja na branch dev.
 
 
 
